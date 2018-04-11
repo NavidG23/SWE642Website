@@ -9,7 +9,7 @@ function validateZip()
     
       $.ajax({
 //        url : "https://api.jsonbin.io/b/5aabf8cdaba566611f330081",
-        url : "../testaccess/zipcodes.json",
+        url : "https://navidg23.github.io/SWE642Website/zipcodes.json",
         type : "GET",
         dataType:"json",
         success : function(data) 
