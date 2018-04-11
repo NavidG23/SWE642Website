@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Survey Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/hw1style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=EB+Garamond" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="javascript/scripts/script.js"></script>
+    <script src="javascript/scripts/scriptForCookies.js"></script>
+    <script src="javascript/scripts/scriptAvgMax.js"></script>
+    <script src="javascript/scripts/zipcodecall.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<!--    <script src="C:\Users\HP\jquery-3.3.1.min.js"></script>-->
+    
+<!--    Style of social media Icons (had to take them out from separate css bc of malfunctioning-->
+    <style>
+        .fa {
+          padding: 20px;
+        padding-right: 40px;
+          font-size: 25px;
+          width: 50px;
+          text-align: left;
+          text-decoration: none;
+          margin: 5px 4px;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+    </style>
+    <script>
+      $( function() 
+        {
+            $( document ).tooltip();
+        } );
+    </script>
+</head>
+<body>
+        <nav class="navbar navbar-inverse">
+            <header>
+                <a class="logo gmu" href="https://www2.gmu.edu/" title="Please click here for more information"><img src="images/newLogo.jpg" height="90px"></a> 
+            </header>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav">
+                    <li><a href="CSInfoPage.html">Home</a></li>
+                    <li><a href="DegreesOffered.html">Degrees Offered</a></li>
+                    <li><a href="Survey.html">Provide Feedback</a></li>
+                    <li><a href="https://cs.gmu.edu/">Department Of Computer Science Page</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html" id="logOut"><span class="glyphicon glyphicon-log-out"></span> Navid Galt's Homepage</a></li>
+                  </ul>
+                </div>
+             </div>
+            </nav>
+
+        <div class="container-fluid text-left">    
+          <div class="row content">
+            <div class="row main">
+                    <h1>Provide Feedback</h1>
+                            <div class="col col-md-1">
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                 <br>
+                            </div>		  
+                            <div class="col col-md-10">
+                                <h2>Campus visit survey&#58; </h2>
+                                
+                                <button onclick="document.getElementById('id01').style.display='block'; runUser();" style="width:auto;">Click here&#33;</button>
+                                 
+                                <div id="id01" class="modal">
+                                  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                  <form id= "survey" class="modal-content" action="SurveyComplete.html">
+                                    <div class="container">
+                                      <h1>On-Campus Visit</h1>
+                                      <input style="float: right;" type="button" onclick="resetForm()" value="Reset Form">
+                                      <h2 id="greeting">Good Afternoon&#44; Navid</h2>
+                                      <p id="notrightperson">Not right person</p>
+                                      <p>Please fill out this form on your experience at George Mason University&#33;</p>
+                                      <hr>
+                                      
+                                      <label for="name"><b>Name</b></label>
+                                      <input type="text" id="name" placeholder="E.g. John Doe" name="name" required>
+
+                                      <label for="address"><b>Street Address</b></label>
+                                      <input type="text" id = "address" placeholder="E.g. 12345 James Court" name="address" required>
+                                      
+                                      <label for="zipcode"><b>Enter Zipcode &#40;City and State will populate&#41;</b></label>
+                                      <input id = "zip" onblur ="validateZip()" type="text" placeholder="E.g. 42354" name="zipcode" required>
+                                      <br>
+                                      <span id="error"></span>
+                                      <br>                                        
+                                      <label for="city"><b>City&#58; </b></label>
+                                      <span id="city" class="validator"></span>
+                                      <br> 
+                                      <label for="state"><b>State&#58; </b></label>
+                                      <span id="state" class="validator"></span>
+                                      <br> 
+                                      <br> 
+                                      <label for="mobile"><b>Phone Number</b></label>
+                                      <input type="text" placeholder="E.g. (703) 322-1222" name="mobile">
+                                        
+                                      <label for="zipcode"><b>Email</b></label>
+                                      <input type="email" id = "email" placeholder="george@example.com" name="email">
+                                      <br>
+                                      <br>
+                                      <label for="graddate"><b>Expected Graduation Date&#58;</b></label>
+                                      <input list="gradmonth" name="gradmonth"> 
+                                      <datalist id="gradmonth">
+                                          Expected Graduation Date&#58;
+                                        <option value="January">
+                                        <option value="February">
+                                        <option value="March">
+                                        <option value="April">
+                                        <option value="May">
+                                        <option value="June">
+                                        <option value="July">
+                                        <option value="August">
+                                        <option value="September">
+                                        <option value="October">
+                                        <option value="November">
+                                        <option value="December">
+                                      </datalist>
+                                      <input type="textyear" placeholder="year" name="gradyear">
+                                      <br>
+                                      <br>
+                                      <label><b>What did you like most about our campus? &#40;Pick at least two&#41;</b>
+                                        <br>
+                                        <br>
+                                        <input type="checkbox" name="response[]" value="answer1" style="margin-bottom:15px"> Students
+                                        <input type="checkbox" name="response[]" value="answer2" style="margin-bottom:15px"> Location
+                                        <input type="checkbox" name="response[]" value="answer3" style="margin-bottom:15px"> Campus
+                                        <input type="checkbox" name="response[]" value="answer4" style="margin-bottom:15px"> Atmosphere
+                                        <input type="checkbox" name="response[]" value="answer5" style="margin-bottom:15px"> Dormrooms
+                                        <input type="checkbox" name="response[]" value="answer6" style="margin-bottom:15px"> Sports
+                                        <input type="checkbox" name="response[]" value="answer7" style="margin-bottom:15px"> Other
+                                      </label>
+                                      <br>
+                                      <br>
+                                      <br>
+                                        
+                                      <label><b>How did you become interested in George Mason?</b>
+                                          <br>
+                                          <input type="radio" name="interest" value="answer1"> Friends<br>
+                                          <input type="radio" name="interest" value="answer2"> Television<br>
+                                          <input type="radio" name="interest" value="answer3"> Internet<br>
+                                          <input type="radio" name="interest" value="answer4"> Other<br>
+                                      </label>
+                                      <br>
+                                      <br> 
+                                        <label><b>How likely are you to recommend George Mason Univsersity to a friend?</b>
+                                        <select id="soflow">
+                                            <option>Select an Option</option>
+                                            <option>Very Likely</option>
+                                            <option>Likely</option>
+                                            <option>Unlikely</option>
+                                        </select>
+                                      </label>
+                                    <br>
+                                      <label for="userid"><b>UserID</b></label>
+                                      <input type="text" placeholder="E.g. 296" name="userid">
+                                      <br>
+                                      <br>
+                                      <label><b>Please select one of the following movies to rate and rate it&#33;</b>
+                                          <select id="soflow">
+                                              <option value="select">Select an Option</option>
+                                              <option value="gladiator">The Gladiator</option>
+                                              <option value="titanic">Titanic</option>
+                                              <option value="lordoftherings">The Lord Of The Rings</option>
+                                              <option value="braveheart">Braveheart</option>
+                                            </select>
+                                        <br>
+                                        <fieldset class="rating">
+                                            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                                            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                                            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                                            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                                            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                                        </fieldset>
+                                      </label>
+                                      <br>
+                                      <br>
+                                        <label>Please enter current time and date&#58;</label>
+                                        <input type="datetime-local" name="bdaytime">
+                                      <br>
+                                      <br>
+                                        <label for="subject">Additional Comments</label>
+                                      <br>
+                                        <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
+                                      <br>
+                                      <br>
+                                      <br>
+                                        <label for="computation"><b>Enter at least 10 numbers between 1-100 separated by commas to compute Average and Maximum of these numbers</b></label>
+                                        <input onblur= "computeAverage(); computeMax();" id="data" type="text" placeholder="E.g. 2,32,16,7,2,4,8,10,53,12" name="data">
+                                        <br>
+                                        <br>
+                                        <label for="computation"><b>Average of Numbers&#58;</b></label>
+                                        <output id="average" for="data"></output>
+                                        <br>
+                                        <label for="computation"><b>Maximum of Numbers&#58;</b></label>
+                                        <output id="maximum" for="data"></output>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <div class="clearfix">
+                                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                        <button type="submit" value="submit" onclick = "return validateForm();" class="signupbtn">Submit</button>
+                                      </div>
+                                    </div>
+                                  </form>
+                                </div>
+                            </div>	
+                            <div class="col col-md-1">
+                            </div>
+                </div>
+            </div>
+          </div>
+    <footer class="container-fluid">
+        <div id="footer">
+            <p class="address">
+                2018 George Mason University
+                <br>
+                4400 University Drive Fairfax, Virginia 22030
+                <br>
+                Phone:703-993-1000
+            </p>
+            <a href="https://www.facebook.com/georgemason" class="fa fa-facebook social"></a>
+            <a href="https://twitter.com/georgemasonu" class="fa fa-twitter social"></a>
+            <a href="https://www.linkedin.com/school/george-mason-university/" class="fa fa-linkedin social"></a>
+            <a href="https://www.youtube.com/user/masonWeb" class="fa fa-youtube social"></a>
+            <a href="https://www.instagram.com/georgemasonu/" class="fa fa-instagram social"></a>
+            <a href="https://www.pinterest.com/georgemasonuniv/?autologin=true" class="fa fa-pinterest social"></a>
+        </div> 
+    </footer>
+    <script>
+    // Get the modal
+    var modal = document.getElementById("id01");
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event)
+    {
+        if (event.target == modal) 
+        {
+            modal.style.display = "none";
+        }
+    }
+    </script>
+</body>
+</html>
