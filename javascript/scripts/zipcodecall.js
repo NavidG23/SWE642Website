@@ -11,7 +11,7 @@ function validateZip()
 //        url : "https://api.jsonbin.io/b/5aabf8cdaba566611f330081",
         url : "https://navidg23.github.io/SWE642Website/zipcodes.json",
         type : "GET",
-        dataType:"json",
+        dataType:"jsonp",
         success : function(data) 
         { 
             if (zipRegEx.test(currentZipcode) == false) 
